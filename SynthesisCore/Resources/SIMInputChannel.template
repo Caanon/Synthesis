@@ -1,0 +1,19 @@
+{
+    HELP = "";
+    CLASS_NAME = SIMInputChannel; 
+    INSPECTOR_CLASS = "SIMInputChannelInspector";
+    DELAY = {
+        Active = No;
+        Distribution = Gaussian;  // Only Gaussian is implemented thus far
+        Mean = "0.0 ms";
+        Std = "0.0 ms";
+    };
+    PARAMETERS = {
+        INPUT_STATISTICS = No;
+    };
+    PARAMETER_RANGES = {};
+    VARIABLES = {
+        INPUT = {TYPE = double; INDEX = 0;};
+        OUTPUT = {TYPE = double; INDEX = 1;};
+    };
+}

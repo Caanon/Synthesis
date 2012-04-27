@@ -1,0 +1,32 @@
+{
+    CLASS_NAME = PoissonNeuronTMS;
+    PARAMETERS = {
+        AbsoluteRefractoryPeriod = 0.7;
+        RelativeRefractoryPeriod = 10.0;
+        MeanFiringRate = 100.0;
+    };
+    PARAMETER_RANGES = {
+        AbsoluteRefractoryPeriod = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = floatNumber;
+            RANGE = (0.0, 50.0);
+            FORMAT = "%g ms";
+        };
+        RelativeRefractoryPeriod = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = floatNumber;
+            RANGE = (0.0, 50.0);
+            FORMAT = "%g ms";
+        };
+        MeanFiringRate = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = floatNumber;
+            RANGE = (0.0, 1000.0);
+            FORMAT = "%g spikes/s";
+        };
+    };
+    VARIABLES = {
+        State = {TYPE = SIMActivityStateValue; INDEX = 0;};
+        Refractory = {TYPE = double; INDEX = 1;};
+    };
+}

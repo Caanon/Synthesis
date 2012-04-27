@@ -1,0 +1,52 @@
+{
+    COMMENTS = "";
+    MASTER_RANDOM_SEED = 1000;
+    LOG = {};
+    CREATION_DATE = ""; 
+    TIME_SCALE = 1.0;
+    INIT_CONNECTIONS_FLAG = No;
+    NUMBER_OF_PROCESSORS = 1;
+    MODEL_LIBRARY = {
+        INTRINSIC_CHANNELS = {};
+        INPUT_CHANNELS = {};
+        CELL_COMPARTMENTS = {};
+        CONNECTIONS_MODEL = {};
+    };
+    LAYERS = {};
+    NODE = 0;
+    NODES = {
+        0 = {
+            HOSTNAME = localhost;
+            SERVERNAME = SynthesisServer;
+            PORT = 42000;
+            IP_ADDRESS = 0.0.0.0;
+            NUMBER_OF_PROCESSORS = 1;
+        };
+    };
+    PARAMETER_RANGES = {
+	COMMENTS = {
+            INSPECTOR = SIMStringInspector;
+	};
+	LAYERS = {
+            INSPECTOR = SIMEditInspector;
+            TYPE = "LAYERS";
+        };
+	TIME_SCALE = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = (0.01,1.0);
+            FORMAT = "%g";
+	};
+        INIT_CONNECTIONS_FLAG = {
+            INSPECTOR = SIMBoolInspector;
+            SELECTOR = boolValue;
+            RANGE = (NO,YES);
+        };
+	NUMBER_OF_PROCESSORS = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = intNumber;
+            RANGE = (0,16);
+            FORMAT = "%g";
+        };
+    };
+}

@@ -1,0 +1,79 @@
+{
+    CLASS_NAME = SynChannelV1;
+    PARAMETERS = {
+        TimeConstant1 = "0.5 ms";
+        TimeConstant2 = "2.4 ms";
+        gPeak = "0.10";
+        ReversalPotential = "0.0 mV";
+        MeanMiniAmplitude = "0.5 mV";
+        StdevMiniAmplitude = "0.25 mV";
+        NoiseRate = 0.0;
+        NoiseAmplitude = 0.0;
+        NoiseMode = "Poisson";
+        ConductanceTable = "None";
+        NoiseCutoffTable = "None";
+    };
+    DELAY = {
+        Active = Yes;
+        Distribution = Gaussian;
+        Mean = "0.0 ms";
+        Std = "0.0 ms";
+    };
+    PARAMETER_RANGES = {
+	ConductanceTable = {
+            INSPECTOR = SIMArrayInspector;
+            RANGE = (None,fNMDA525,fNMDA53,fNMDA55,fNMDA60,fNMDA70);
+	};
+	NoiseCutoffTable = {
+            INSPECTOR = SIMArrayInspector;
+            RANGE = (None,Sigmoid75_5,Sigmoid70_2,Zeroes);
+	};
+	TimeConstant1 = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("0.1",50.0);
+            FORMAT = "%0.2g ms";
+	};
+	TimeConstant2 = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("0.1",50.0);
+            FORMAT = "%0.2g ms";
+	};
+	gPeak = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = (".001","1.0");
+            FORMAT = "%g";
+	};
+	ReversalPotential = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("-90.0","-10.0");
+            FORMAT = "%g mV";
+	};
+	NoiseRate = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("0.0",500.0);
+            FORMAT = "%g kHz ";
+	};
+        NoiseMode = {
+            INSPECTOR = SIMArrayInspector;
+            RANGE = ("Binomial","Poisson");
+	};
+	NoiseAmplitude = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("0.01","10");
+            FORMAT = "%g";
+	};
+    };
+    VARIABLES = {
+        INPUT = {TYPE = double; INDEX = 0;};
+        OUTPUT = {TYPE = double; INDEX = 1;};
+        dGdt = {TYPE = double; INDEX = 2;};
+        G = {TYPE = double; INDEX = 3;};
+        g = {TYPE = double; INDEX = 4;};
+    };
+}

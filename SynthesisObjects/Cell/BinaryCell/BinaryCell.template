@@ -1,0 +1,12 @@
+{
+    CLASS_NAME = BinaryCell;
+    PARAMETERS = {
+	InitialDensity = 0.1;
+	LifeMode = Yes;
+    };
+    PARAMETER_RANGES = {};
+    VARIABLES = {
+        State = {TYPE = SIMActivityStateValue; INDEX = 0;};
+        BinaryState = {TYPE = BOOL; INDEX = 1;};
+    };
+}

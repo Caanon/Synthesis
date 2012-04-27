@@ -1,0 +1,53 @@
+{
+    CLASS_NAME = CellDataAgent;
+    INSPECTOR_CLASS = SIMCellDataAgentInspector;
+    INSPECTOR_FRAME = "";
+    PARAMETERS = {
+            DataType = MembranePotential;
+            Layer = Layer01;
+            Model = iaf;
+            Variable = VesiclePool;
+            Position_x = 0;
+            Position_y = 0;
+            Radius = 0;
+            BufferSize = 1000;
+            SaveToFile = No;
+            Filename = "data.out";
+            UpdateInterval = 100;
+			RootPath = "/";
+    };
+    NOTIFICATION = "NetworkDidUpdate";
+    SELECTOR = "gatherData";
+    PARAMETER_RANGES = {
+        DataType = {
+                INSPECTOR = SIMArrayInspector;
+                SELECTOR = stringValue;
+                RANGE = (AverageMembranePotential, AverageFieldPotential, MembranePotential, SummedChannelCurrent, CellModelVariable, ChannelModelVariable);
+                FORMAT = "%@";
+        };
+        BufferSize = {
+                INSPECTOR = SIMNumberInspector;
+                SELECTOR = intNumber;
+                RANGE = (0,5000);
+                FORMAT = "%g ms";
+        };
+        UpdateInterval = {
+                INSPECTOR = SIMNumberInspector;
+                SELECTOR = intNumber;
+                RANGE = (0,500);
+                FORMAT = "%g ms";
+        };
+        SaveToFile = {
+                INSPECTOR = SIMBoolInspector;
+                SELECTOR = boolValue;
+                RANGE = (No,Yes);
+                FORMAT = "%@";
+        };
+        Filename = {
+                INSPECTOR = SIMFilePathInspector;
+                SELECTOR = stringValue;
+                RANGE = ();
+                FORMAT = "%@";
+        };
+    };
+}

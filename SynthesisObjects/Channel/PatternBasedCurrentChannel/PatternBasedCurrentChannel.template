@@ -1,0 +1,34 @@
+{
+    CLASS_NAME = PatternBasedCurrentChannel;
+    PARAMETERS = {
+        Current = 1.0;
+        InjectCurrentDirectly = No;
+        Channels = ("*");
+        PatternGenerator = {
+            CLASS_NAME = PointStimulus;
+            PARAMETERS = {
+                CenterX = 0.0;
+                CenterY = 0.0;
+                Radius = 0.0;
+                Peak = 1.0;
+            };
+        }; 
+    };
+    PARAMETER_RANGES = {
+	Current = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("-50.0",50.0);
+            FORMAT = "%0.2g";
+	};
+        InjectCurrentDirectly = {
+                INSPECTOR = SIMBoolInspector;
+                SELECTOR = boolValue;
+                RANGE = (No,Yes);
+                FORMAT = "%@";
+        };
+    };
+    VARIABLES = {
+        OUTPUT = {TYPE = double; INDEX = 0;};
+    };
+}

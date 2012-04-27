@@ -1,0 +1,180 @@
+//loadState ~/States/V2-v_only.state
+set /NUM* 4
+set /MASTER_RANDOM_SEED* 1000
+set *PotassiumLeak* 1.0
+set *nmda*gPeak 0.075
+set *gabaB*gmax 0.25
+set *V1*VesiclePeak* 0.5
+set *V2*VesiclePeak* 0.5
+set *Thalamus*VesiclePeak* 1.0
+set *NRT*VesiclePeak* 1.0
+set *VesicleRelease* 0.25
+set *Thalamus*INaP*Threshold* -45.0
+set *NRT*INaP*Threshold* -45.0
+set *V1*INaP*Threshold* -55.0
+set *V2*INaP*Threshold* -55.0
+set *IKNa*SodiumInflux* 0.02
+set *IKNa*SodiumThreshold -10.0
+set *IKNa*SodiumThresholdSlope* 5
+set *IKNa*SodiumTimeConstant 1400
+set *IKNa*gPeak* 0.5
+reset
+set *VesicleRecovery* 1.0
+update 25
+set *VesicleRecovery* 500.0
+set *V1*INaP*gPeak* 0.5
+set *V2*INaP*gPeak* 0.5
+set *Thalamus*INaP*gPeak* 0.5
+set *NRT*INaP*gPeak* 0.5
+set *Infra*Ih*gPeak 1.0
+set *It*gPeak* 1.0
+set *Thalamus*Ih*gPeak 1.0
+set *iaf*Pattern*Duration 0.0
+update 25
+startAllAgents
+updateUntil 1050
+set *PotassiumLeak* 1.000071
+set *NRT*PotassiumLeak* 1.0
+update 50
+set *PotassiumLeak* 1.000186
+set *NRT*PotassiumLeak* 1.0
+update 50
+set *PotassiumLeak* 1.000376
+set *NRT*PotassiumLeak* 1.0
+update 50
+set *PotassiumLeak* 1.000689
+set *NRT*PotassiumLeak* 1.0
+update 50
+set *PotassiumLeak* 1.001205
+set *NRT*PotassiumLeak* 1.0
+update 50
+set *PotassiumLeak* 1.002053
+set *NRT*PotassiumLeak* 1.0
+update 50
+set *PotassiumLeak* 1.003448
+set *NRT*PotassiumLeak* 1.0
+update 50
+set *PotassiumLeak* 1.005736
+set *NRT*PotassiumLeak* 1.0
+update 50
+set *PotassiumLeak* 1.009478
+set *NRT*PotassiumLeak* 1.0
+update 50
+set *PotassiumLeak* 1.015566
+set *NRT*PotassiumLeak* 0.95
+update 50
+set *PotassiumLeak* 1.025388
+set *NRT*PotassiumLeak* 0.95
+update 50
+set *PotassiumLeak* 1.041020
+set *NRT*PotassiumLeak* 0.95
+update 50
+set *PotassiumLeak* 1.065371
+set *NRT*PotassiumLeak* 0.95
+set *It*gPeak 1.25
+set *Ih*gPeak 1.25
+update 50
+set *PotassiumLeak* 1.102063
+set *NRT*PotassiumLeak* 0.9
+update 50
+set *PotassiumLeak* 1.154667
+update 50
+set *PotassiumLeak* 1.224947
+set *NRT*PotassiumLeak* 0.9
+update 50
+set *PotassiumLeak* 1.310492
+set *NRT*PotassiumLeak* 0.9
+update 50
+set *PotassiumLeak* 1.403553
+set *NRT*PotassiumLeak* 0.9
+set *It*gPeak 1.5
+set *Ih*gPeak 1.5
+update 50
+set *PotassiumLeak* 1.493202
+set *NRT*PotassiumLeak* 0.875
+update 50
+set *PotassiumLeak* 1.569997
+set *NRT*PotassiumLeak* 0.875
+update 50
+set *PotassiumLeak* 1.629439
+set *NRT*PotassiumLeak* 0.85
+update 50
+set *PotassiumLeak* 1.671940
+set *NRT*PotassiumLeak* 0.85
+update 50
+set *PotassiumLeak* 1.700633
+set *NRT*PotassiumLeak* 0.85
+update 50
+set *PotassiumLeak* 1.719261
+set *NRT*PotassiumLeak* 0.8
+set *It*gPeak 1.75
+set *Ih*gPeak 1.75
+update 50
+set *PotassiumLeak* 1.731050
+set *NRT*PotassiumLeak* 0.8
+update 50
+set *PotassiumLeak* 1.738391
+set *NRT*PotassiumLeak* 0.78
+set *V1*Inh*VesiclePeak* 0.5
+set *V2*Inh*VesiclePeak* 0.5
+set *V1*Exc*VesiclePeak* 0.75
+set *V2*Exc*VesiclePeak* 0.75
+set *VesicleRecovery* 500.0
+set *It*gPeak 2.0
+set *Ih*gPeak 2.0
+update 50
+set *PotassiumLeak* 1.752916
+set *NRT*PotassiumLeak* 0.77
+set *IKNa*gPeak 0.75
+set *INaP*gPeak* 0.6
+update 50
+set *PotassiumLeak* 1.785687
+set *NRT*PotassiumLeak* 0.76
+set *IKNa*gPeak 0.75
+set *INaP*gPeak* 0.7
+update 50
+set *PotassiumLeak* 1.827378
+set *NRT*PotassiumLeak* 0.75
+set *IKNa*gPeak 0.75
+set *nmda*gPeak 0.075
+set *INaP*gPeak* 0.8
+update 50
+set *PotassiumLeak* 1.848408
+set *NRT*PotassiumLeak* 0.75
+set *IKNa*gPeak 0.75
+set *INaP*gPeak* 0.9
+set *nmda*gPeak 0.075
+update 50
+set *PotassiumLeak* 1.849033
+set *NRT*PotassiumLeak* 0.75
+set *IKNa*gPeak 0.75
+set *INaP*gPeak* 1.0
+set *nmda*gPeak 0.0775
+update 50
+set *PotassiumLeak* 1.849413
+set *NRT*PotassiumLeak* 0.75
+set *IKNa*gPeak 0.75
+set *INaP*gPeak* 1.1
+set *nmda*gPeak 0.08
+update 50
+set *PotassiumLeak* 1.849644
+set *NRT*PotassiumLeak* 0.75
+set *IKNa*gPeak 0.85
+set *INaP*gPeak* 1.15
+update 50
+set *PotassiumLeak* 1.849784
+set *NRT*PotassiumLeak* 0.75
+set *IKNa*gPeak 0.75
+set *INaP*gPeak* 1.2
+set *nmda*gPeak 0.0825
+update 50
+set *PotassiumLeak* 1.849869
+set *NRT*PotassiumLeak* 0.75
+set *IKNa*gPeak 1.5
+set *INaP*gPeak* 1.25
+set *nmda*gPeak 0.085
+update 50
+set *PotassiumLeak* 1.85
+set *NRT*PotassiumLeak* 0.75
+runUntil 20050
+

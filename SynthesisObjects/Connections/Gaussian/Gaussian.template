@@ -1,0 +1,93 @@
+{
+	HELP = "Generates connections according to a Gaussian PDF using the rejection method.";
+	CLASS_NAME = Gaussian;
+	INSPECTOR_CLASS = SIMConnectionsInspector;
+	PARAMETERS = {
+	    Height = 0.5;
+	    Width = 2.5;
+	    Radius = 5;
+	    Strength = 5;
+	    Constant = 0.0;
+	    Type = Smooth;
+	    Normalized = NO;
+		StdDelay = 0.0;
+		MeanDelay = 0.0;
+		StrengthStd = 0.25;
+		AllowNullConnections = No;
+	};
+	PARAMETER_RANGES = {
+	    Height = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = floatNumber;
+		    RANGE = (0.0,1.0);
+		    FORMAT = "%.2g";
+	    };
+	    Width = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = floatNumber;
+		    RANGE = (0.0,10.0);
+		    FORMAT = "%.2g";
+	    };
+	    Normalized = {
+		    INSPECTOR = SIMBoolInspector;
+		    SELECTOR = boolValue;
+		    RANGE = (No,Yes);
+		    FORMAT = "%@";
+	    };
+	    AddNullConnections = {
+		    INSPECTOR = SIMBoolInspector;
+		    SELECTOR = boolValue;
+		    RANGE = (No,Yes);
+		    FORMAT = "%@";
+	    };
+	    Offset = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = floatNumber;
+		    RANGE = (0.0,1.0);
+		    FORMAT = "%g";
+	    };
+	    XOffset = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = intNumber;
+		    RANGE = ("-30",30);
+		    FORMAT = "%g cells";
+	    };
+	    YOffset = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = intNumber;
+		    RANGE = ("-30",30);
+		    FORMAT = "%g cells";
+	    };
+	    Radius = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = intNumber;
+		    RANGE = (0,40);
+		    FORMAT = "%g cells";
+	    };
+	    Strength = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = floatNumber;
+		    RANGE = ("-10.0",10.0);
+		    FORMAT = "%.2g";
+	    };
+	    Type = {
+		    INSPECTOR = SIMArrayInspector;
+		    SELECTOR = stringValue;
+		    RANGE = (Random,Sobol,Smooth,RandomSmooth,GaussianStrength,SparseSmooth);
+		    FORMAT = "%@";
+	    };
+	    StdDelay = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = floatNumber;
+		    RANGE = (0.0,1.0);
+		    FORMAT = "%.2g";
+	    };
+	    MeanDelay = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = floatNumber;
+		    RANGE = (0.0,10.0);
+		    FORMAT = "%.2g";
+	    };
+
+    };
+}

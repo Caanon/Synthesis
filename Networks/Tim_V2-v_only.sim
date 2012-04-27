@@ -1,0 +1,4007 @@
+{
+    COMMENTS = "Full model developed by Lumer et al., Cerebral Cortex, May 1997; now with no noise. Contains new interareal Cx1->Th2 projections."; 
+    CREATION_DATE = ""; 
+    INIT_CONNECTIONS_FLAG = No;
+    AGENTS = "file://localhost/home/blakely/Timtest/Library/Tim_V2.agents";
+    MODEL_LIBRARY = "file://localhost/home/blakely/Timtest/Library/Tim_V1.models";
+    LAYERS = {
+        V1_Infra_V_E1 = {
+            NUMCOLUMNS = 40;
+            NUMROWS = 40;
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {
+			thalamocortical = {
+                            CONNECTIONS_MODEL = {
+				CLASS_NAME = RectangularConnections;
+				PARAMETERS = {
+                                    Length = 8;
+                                    Width = 2;
+                                    Strength = 5.0;
+                                    PeakProbability = 0.5;
+                                    Type = Random;
+                                    Radius = 5;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+                                };
+			    };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus1_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	ampa_infra = {
+                            CONNECTIONS_MODEL = lateral_excitation;
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Infra_V_E1.All,V1_Infra_V_E2.All,V1_Infra_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_supra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_E1.All,V1_Supra_V_E2.All,V1_Supra_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_nrt = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.5;
+                                    Width = 7.5;
+                                    Radius = 5.0;
+                                    Strength = "2.5 mV";
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (NRT.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_thalamic = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.5;
+                                    Width = 7.5;
+                                    Radius = 5.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus1_E.All,Thalamus1_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_IV = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_IV_V_E1.All,V1_IV_V_E2.All,V1_IV_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                        ampa_thalamicII = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = 5.0;
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_E.All,Thalamus2_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    };
+                    PERCENTAGE = "70 %";
+                }; 
+                IB = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                        Ih = cation;
+                    };
+                    AFFERENT_CONNECTIONS = {
+			thalamocortical = {
+                            CONNECTIONS_MODEL = {
+				CLASS_NAME = RectangularConnections;
+				PARAMETERS = {
+                                    Length = 8;
+                                    Width = 2;
+                                    Strength = 5.0;
+                                    PeakProbability = 0.3;
+                                    Type = Random;
+                                    Radius = 5;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+                                };
+			    };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus1_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	ampa_infra = {
+                            CONNECTIONS_MODEL = lateral_excitation;
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Infra_V_E1.All,V1_Infra_V_E2.All,V1_Infra_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_supra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_E1.All,V1_Supra_V_E2.All,V1_Supra_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_nrt = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.5;
+                                    Width = 7.5;
+                                    Radius = 5.0;
+                                    Strength = "2.5 mV";
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (NRT.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_thalamic = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.5;
+                                    Width = 7.5;
+                                    Radius = 5.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus1_E.All,Thalamus1_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_IV = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_IV_V_E1.All,V1_IV_V_E2.All,V1_IV_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                        ampa_thalamicII = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = 5.0;
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_E.All,Thalamus2_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    };
+                    PERCENTAGE = "30 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V1_Infra_V_E2 = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {
+			thalamocortical = {
+                            CONNECTIONS_MODEL = {
+				CLASS_NAME = RectangularConnections;
+				PARAMETERS = {
+                                    Length = 8;
+                                    Width = 2;
+                                    Strength = 5.0;
+                                    PeakProbability = 0.5;
+                                    Type = Random;
+                                    Radius = 5;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+                                };
+			    };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus1_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	ampa_infra = {
+                            CONNECTIONS_MODEL = lateral_excitation;
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Infra_V_E1.All,V1_Infra_V_E2.All,V1_Infra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_supra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_E1.All,V1_Supra_V_E2.All,V1_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_nrt = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.5;
+                                    Width = 7.5;
+                                    Radius = 5.0;
+                                    Strength = "2.5 mV";
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (NRT.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };                        
+                    	ampa_thalamic = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.5;
+                                    Width = 7.5;
+                                    Radius = 5.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus1_E.All,Thalamus1_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_IV = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_IV_V_E1.All,V1_IV_V_E2.All,V1_IV_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                        ampa_thalamicII = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = 5.0;
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_E.All,Thalamus2_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    };
+                    PERCENTAGE = "70 %";
+                }; 
+                IB = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                        Ih = cation;
+                    };
+                    AFFERENT_CONNECTIONS = {
+			thalamocortical = {
+                            CONNECTIONS_MODEL = {
+				CLASS_NAME = RectangularConnections;
+				PARAMETERS = {
+                                    Length = 8;
+                                    Width = 2;
+                                    Strength = 5.0;
+                                    PeakProbability = 0.3;
+                                    Type = Random;
+                                    Radius = 5;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+                                };
+			    };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus1_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	ampa_infra = {
+                            CONNECTIONS_MODEL = lateral_excitation;
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Infra_V_E1.All,V1_Infra_V_E2.All,V1_Infra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_supra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_E1.All,V1_Supra_V_E2.All,V1_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_nrt = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.5;
+                                    Width = 7.5;
+                                    Radius = 5.0;
+                                    Strength = "2.5 mV";
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (NRT.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };                        
+                    	ampa_thalamic = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.5;
+                                    Width = 7.5;
+                                    Radius = 5.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus1_E.All,Thalamus1_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_IV = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_IV_V_E1.All,V1_IV_V_E2.All,V1_IV_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                        ampa_thalamicII = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = 5.0;
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_E.All,Thalamus2_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    };
+                    PERCENTAGE = "30 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V1_Infra_V_I = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Inh = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {
+			thalamocortical = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 5.0;
+                                    Strength = 5.0;
+                                    Type = Random;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus1_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	gabaA = {
+                            CONNECTIONS_MODEL = lateral_inhibition;
+                            PROJECTION_INFO = {
+                                TYPES =(V1_Infra_V_E1.All,
+					V1_Infra_V_E2.All,
+					V1_Infra_V_I.All,
+					V1_Infra_H_E1.All,
+					V1_Infra_H_E2.All,
+					V1_Infra_H_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaA;
+                        }; 
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V1_Infra_H_E1 = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "70 %";
+                }; 
+                IB = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                        Ih = cation;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "30 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V1_Infra_H_E2 = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "70 %";
+                }; 
+                IB = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                        Ih = cation;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "30 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V1_Infra_H_I = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Inh = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V1_IV_H_E1 = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V1_IV_H_E2 = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V1_IV_H_I = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Inh = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V1_IV_V_E1 = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {
+			thalamocortical = {
+                            CONNECTIONS_MODEL = {
+				CLASS_NAME = RectangularConnections;
+				PARAMETERS = {
+                                    Length = 8;
+                                    Width = 2;
+                                    Strength = 5.0;
+                                    PeakProbability = 0.5;
+                                    Type = Random;
+                                    Radius = 5;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+                                };
+			    };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus1_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	ampa = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.05;
+                                    Width = 7.5;
+                                    Radius = 7.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_IV_V_E1.All,V1_IV_V_E2.All,V1_IV_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_supra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_E1.All,V1_Supra_V_E2.All,V1_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V1_IV_V_E2 = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {
+			thalamocortical = {
+                            CONNECTIONS_MODEL = {
+				CLASS_NAME = RectangularConnections;
+				PARAMETERS = {
+                                    Length = 8;
+                                    Width = 2;
+                                    Strength = 5.0;
+                                    PeakProbability = 0.5;
+                                    Type = Random;
+                                    Radius = 5;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+                                };
+			    };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus1_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	ampa = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.05;
+                                    Width = 7.5;
+                                    Radius = 7.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_IV_V_E1.All,V1_IV_V_E2.All,V1_IV_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_supra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_E1.All,V1_Supra_V_E2.All,V1_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V1_IV_V_I = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Inh = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {
+			thalamocortical = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 5.0;
+                                    Strength = 5.0;
+                                    Type = Random;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus1_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	gabaA = {
+                            CONNECTIONS_MODEL = lateral_inhibition;
+                            PROJECTION_INFO = {
+                                TYPES =(V1_IV_V_E1.All,
+					V1_IV_V_E2.All,
+					V1_IV_V_I.All,
+					V1_IV_H_E1.All,
+					V1_IV_H_E2.All,
+					V1_IV_H_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaA;
+                        }; 
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V1_Supra_H_E1 = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V1_Supra_H_E2 = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V1_Supra_H_I = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Inh = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V1_Supra_V_E1 = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	nmda = {
+                            CONNECTIONS_MODEL = lateral_excitation;
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_E1.All,V1_Supra_V_E2.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = nmda;
+                        };
+                    	ampa = {
+                            CONNECTIONS_MODEL = lateral_excitation;
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	nmda_infra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Infra_V_E1.All,V1_Infra_V_E2.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = (ampa,nmda);
+                        };
+                    	ampa_infra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Infra_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	gabaB_other = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.25;
+                                    Height = 0.0;
+                                    Width = 7.5;
+                                    Radius = 1.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 4.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_E1.All,V1_Supra_V_E2.All,V1_IV_V_E1.All,V1_IV_V_E2.All,V1_Infra_V_E1.All,V1_Infra_V_E2.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaB;
+                        }; 
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V1_Supra_V_E2 = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	nmda = {
+                            CONNECTIONS_MODEL = lateral_excitation;
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_E1.All,V1_Supra_V_E2.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = nmda;
+                        };
+                    	ampa = {
+                            CONNECTIONS_MODEL = lateral_excitation;
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	nmda_infra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Infra_V_E1.All,V1_Infra_V_E2.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = (ampa,nmda);
+                        };
+                    	ampa_infra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Infra_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	gabaB_other = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.25;
+                                    Height = 0.0;
+                                    Width = 7.5;
+                                    Radius = 1.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 4.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_E1.All,V1_Supra_V_E2.All,V1_IV_V_E1.All,V1_IV_V_E2.All,V1_Infra_V_E1.All,V1_Infra_V_E2.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaB;
+                        }; 
+                     };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V1_Supra_V_I = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Inh = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	gabaA = {
+                            CONNECTIONS_MODEL = lateral_inhibition;
+                            PROJECTION_INFO = {
+                                TYPES =(V1_Supra_V_E1.All,
+					V1_Supra_V_E2.All,
+					V1_Supra_V_I.All,
+					V1_Supra_H_E1.All,
+					V1_Supra_H_E2.All,
+					V1_Supra_H_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaA;
+                        }; 
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        NRT = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Inh = {
+                    INTRINSIC_CHANNELS = {
+                        INaP = persistent_sodium;
+                        It = lowthreshold_calcium;
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = nrt_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    AFFERENT_CONNECTIONS = {};
+                    EFFERENT_CONNECTIONS = {
+                    	gabaA_nrt = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.5;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 1.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (NRT.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaA;
+                        }; 
+                    	gabaA = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.15;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus1_E.All,Thalamus1_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaA_relay;
+                        }; 
+                        gabaB = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.05;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus1_E.All,Thalamus1_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaB;
+                        };
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        OpticNerveNoise = {
+          NUMCOLUMNS = 40; 
+          NUMROWS = 40; 
+          TYPES = {
+                Exc = {
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = {
+                            CLASS_NAME = PoissonNeuron;
+                            PARAMETERS = {
+                                AbsoluteRefractoryPeriod = 2.0;
+                                RelativeRefractoryPeriod = 0.0;
+                                MeanFiringRate = 40.0;
+                            };
+                        };
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	ampa_thalamic = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.5;
+                                    Width = 7.5;
+                                    Radius = 1.0;
+                                    Strength = "5.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 1.0;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus1_E.All,Thalamus1_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        }; 
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        OpticNerveInhibition = {
+          NUMCOLUMNS = 40; 
+          NUMROWS = 40; 
+          TYPES = {
+                Inh = {
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = {
+                            CLASS_NAME = PatternBasedNeuron;
+                            PARAMETERS = {
+                                PatternGenerator = {
+                                    CLASS_NAME = SingleBarPattern;
+                                    PARAMETERS = {
+                                        CenterX = 19.0;
+                                        CenterY = 19.0;
+                                        Angle = "45.0 degrees";
+                                        Thickness = 5.0;
+                                        Length = 10.0;
+                                        StartTime =  0.0;
+                                        Duration = 1.0;
+                                        Interval = 100.0;
+                                    };
+                                };
+                            };
+                        };
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	ampa_thalamic = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 1.0;
+                                    Height = 0.0;
+                                    Width = 0.0;
+                                    Radius = 0.0;
+                                    Strength = "0.75";
+                                    Type = Random;
+                                    MeanDelay = 0.0;
+                                    StdDelay = 0.0;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (OpticNerveNoise.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaA;
+                        }; 
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        Thalamic1_Input= {
+          NUMCOLUMNS = 40; 
+          NUMROWS = 40; 
+          TYPES = {
+                Exc = {
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = {
+                            CLASS_NAME = PatternBasedNeuron;
+                            PARAMETERS = {
+                                PatternGenerator = {
+                                    CLASS_NAME = SingleBarPattern;
+                                    PARAMETERS = {
+                                        CenterX = 19.0;
+                                        CenterY = 19.0;
+                                        Angle = "45.0 degrees";
+                                        Thickness = 2.0;
+                                        Length = 10.0;
+                                        StartTime =  0.0;
+                                        Duration = 1.0;
+                                        Interval = 100.0;
+                                    };
+                                };
+                            };
+                        };
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	ampa_thalamic = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 1.0;
+                                    Height = 0.0;
+                                    Width = 0.0;
+                                    Radius = 1.0;
+                                    Strength = "5.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 0.0;
+                                    StdDelay = 0.0;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus1_E.All,Thalamus1_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        }; 
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        Thalamus1_E = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Exc = {
+                    AFFERENT_CONNECTIONS = {};
+                    INTRINSIC_CHANNELS = {
+                        INaP = persistent_sodium;
+                        It = lowthreshold_calcium;
+                        Ih = cation;
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = thalamic_relay;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	ampa_nrt = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (NRT.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        }; 
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+	Thalamus1_I = {
+            NUMCOLUMNS = 40; 
+            NUMROWS = 40; 
+            TYPES = {
+                Inh = {
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = thalamic_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	gabaA = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.25;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 1.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus1_I.All,Thalamus1_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaA_relay;
+                        }; 
+
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V2_Infra_H_E1 = {
+            NUMCOLUMNS = 30;
+            NUMROWS = 30;
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "70 %";
+                }; 
+                IB = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                        Ih = cation;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "30 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V2_Infra_H_E2 = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "70 %";
+                }; 
+                IB = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                        Ih = cation;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "30 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V2_Infra_H_I = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Inh = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V2_Infra_V_E1 = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {
+			thalamocortical = {
+                            CONNECTIONS_MODEL = {
+				CLASS_NAME = Gaussian;
+				PARAMETERS = {
+				    Height = .3;
+				    Width = 7.5;
+				    Radius = 2;
+				    Strength = 5.0;
+				    Type = Random;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+				};
+			    };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                        ampa_supraI = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 6.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                        nmda_supraI = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 6.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_E1.All,V1_Supra_V_E2.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = nmda;
+                        };
+                    	ampa_infra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Infra_V_E1.All,V2_Infra_V_E2.All,V2_Infra_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_supra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Supra_V_E1.All,V2_Supra_V_E2.All,V2_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_IV = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 7.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_IV_V_E1.All,V2_IV_V_E2.All,V2_IV_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_thalamic = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.4;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_E.All,Thalamus2_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_nrt = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.5;
+                                    Width = 7.5;
+                                    Radius = 5.0;
+                                    Strength = "2.5 mV";
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (NRT2.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    };
+                    PERCENTAGE = "70 %";
+                }; 
+                IB = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                        Ih = cation;
+                    };
+                    AFFERENT_CONNECTIONS = {
+			thalamocortical = {
+                            CONNECTIONS_MODEL = {
+				CLASS_NAME = Gaussian;
+				PARAMETERS = {
+				    Height = .3;
+				    Width = 7.5;
+				    Radius = 2;
+				    Strength = 5.0;
+				    Type = Random;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+				};
+			    };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                        ampa_supraI = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 6.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                        nmda_supraI = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 6.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_E1.All,V1_Supra_V_E2.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = nmda;
+                        };
+                    	ampa_infra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Infra_V_E1.All,V2_Infra_V_E2.All,V2_Infra_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_supra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Supra_V_E1.All,V2_Supra_V_E2.All,V2_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_IV = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 7.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_IV_V_E1.All,V2_IV_V_E2.All,V2_IV_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_thalamic = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.4;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_E.All,Thalamus2_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_nrt = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.5;
+                                    Width = 7.5;
+                                    Radius = 5.0;
+                                    Strength = "2.5 mV";
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (NRT2.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    };
+                    PERCENTAGE = "30 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V2_Infra_V_E2 = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {
+			thalamocortical = {
+                            CONNECTIONS_MODEL = {
+				CLASS_NAME = Gaussian;
+				PARAMETERS = {
+				    Height = .3;
+				    Width = 7.5;
+				    Radius = 2;
+				    Strength = 5.0;
+				    Type = Random;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+				};
+			    };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                        ampa_supraI = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = .1;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 6.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                        nmda_supraI = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 6.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_E1.All,V1_Supra_V_E2.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = nmda;
+                        };
+                    	ampa_infra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Infra_V_E1.All,V2_Infra_V_E2.All,V2_Infra_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_supra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Supra_V_E1.All,V2_Supra_V_E2.All,V2_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_IV = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 7.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_IV_V_E1.All,V2_IV_V_E2.All,V2_IV_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_thalamic = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.4;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_E.All,Thalamus2_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_nrt = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.5;
+                                    Width = 7.5;
+                                    Radius = 5.0;
+                                    Strength = "2.5 mV";
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (NRT2.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    };
+                    PERCENTAGE = "70 %";
+                }; 
+                IB = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                        Ih = cation;
+                    };
+                    AFFERENT_CONNECTIONS = {
+			thalamocortical = {
+                            CONNECTIONS_MODEL = {
+				CLASS_NAME = Gaussian;
+				PARAMETERS = {
+				    Height = .3;
+				    Width = 7.5;
+				    Radius = 2;
+				    Strength = 5.0;
+				    Type = Random;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+				};
+			    };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                        ampa_supraI = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = .1;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 6.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                        nmda_supraI = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 6.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_E1.All,V1_Supra_V_E2.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = nmda;
+                        };
+                    	ampa_infra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Infra_V_E1.All,V2_Infra_V_E2.All,V2_Infra_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_supra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Supra_V_E1.All,V2_Supra_V_E2.All,V2_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_IV = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 7.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_IV_V_E1.All,V2_IV_V_E2.All,V2_IV_V_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_thalamic = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.4;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_E.All,Thalamus2_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_nrt = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.5;
+                                    Width = 7.5;
+                                    Radius = 5.0;
+                                    Strength = "2.5 mV";
+                                    Type = Random;
+                                    MeanDelay = 8.0;
+                                    StdDelay = 0.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (NRT2.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    };
+                    PERCENTAGE = "30 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V2_Infra_V_I = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Inh = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {
+			thalamocortical = {
+                            CONNECTIONS_MODEL = {
+				CLASS_NAME = Gaussian;
+				PARAMETERS = {
+				    Height = .3;
+				    Width = 7.5;
+				    Radius = 2;
+				    Strength = 5.0;
+				    Type = Random;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+				};
+			    };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	gabaA = {
+                            CONNECTIONS_MODEL = lateral_inhibition;
+                            PROJECTION_INFO = {
+                                TYPES =(V2_Infra_V_E1.All,
+					V2_Infra_V_E2.All,
+					V2_Infra_V_I.All,
+					V2_Infra_H_E1.All,
+					V2_Infra_H_E2.All,
+					V2_Infra_H_I.All,
+					V2_Infra_C_E1.All,
+					V2_Infra_C_E2.All,
+					V2_Infra_C_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                            BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaA;
+                        }; 
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V2_Infra_C_E1 = {
+            NUMCOLUMNS = 30;
+            NUMROWS = 30;
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "70 %";
+                }; 
+                IB = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                        Ih = cation;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "30 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V2_Infra_C_E2 = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "70 %";
+                }; 
+                IB = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                        Ih = cation;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "30 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V2_Infra_C_I = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Inh = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V2_IV_H_E1 = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V2_IV_H_E2 = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V2_IV_H_I = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Inh = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V2_IV_V_E1 = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {
+			thalamocortical = {
+                            CONNECTIONS_MODEL = {
+				CLASS_NAME = Gaussian;
+				PARAMETERS = {
+				    Height = .5;
+				    Width = 7.5;
+				    Radius = 2;
+				    Strength = 5.0;
+				    Type = Random;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+				};
+			    };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                        ampa_supraI = {
+                            CONNECTIONS_MODEL = {
+				CLASS_NAME = RectangularConnections;
+				PARAMETERS = {
+                                    Length = 19;
+                                    Width = 3;
+                                    Strength = 1;
+                                    PeakProbability = 0.8;
+                                    Type = Random;
+                                    Radius = 10;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+                                };
+			    };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_E1.All,V1_Supra_V_E2.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	ampa = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 7.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_IV_V_E1.All,V2_IV_V_E2.All,V2_IV_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_supra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Supra_V_E1.All,V2_Supra_V_E2.All,V2_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V2_IV_V_E2 = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {
+			thalamocortical = {
+                            CONNECTIONS_MODEL = {
+				CLASS_NAME = Gaussian;
+				PARAMETERS = {
+				    Height = .5;
+				    Width = 7.5;
+				    Radius = 2;
+				    Strength = 5.0;
+				    Type = Random;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+				};
+			    };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                        ampa_supraI = {
+                            CONNECTIONS_MODEL = {
+				CLASS_NAME = RectangularConnections;
+				PARAMETERS = {
+                                    Length = 19;
+                                    Width = 3;
+                                    Strength = 1;
+                                    PeakProbability = 0.8;
+                                    Type = Random;
+                                    Radius = 10;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+                                };
+			    };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_E1.All,V1_Supra_V_E2.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	ampa = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 7.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_IV_V_E1.All, V2_IV_V_E2.All,V2_IV_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_supra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Supra_V_E1.All,V2_Supra_V_E2.All,V2_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V2_IV_V_I = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Inh = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {
+			thalamocortical = {
+                            CONNECTIONS_MODEL = {
+				CLASS_NAME = Gaussian;
+				PARAMETERS = {
+				    Height = .5;
+				    Width = 7.5;
+				    Radius = 2;
+				    Strength = 5.0;
+				    Type = Random;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+				};
+			    };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                        ampa_supraI = {
+                            CONNECTIONS_MODEL = {
+				CLASS_NAME = RectangularConnections;
+				PARAMETERS = {
+                                    Length = 19;
+                                    Width = 3;
+                                    Strength = 1;
+                                    PeakProbability = 0.8;
+                                    Type = Random;
+                                    Radius = 10;
+                                    MeanDelay = 3.0;
+                                    StdDelay = 0.25;
+                                };
+			    };
+                            PROJECTION_INFO = {
+                                TYPES = (V1_Supra_V_E1.All,V1_Supra_V_E2.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+			};
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	gabaA = {
+                            CONNECTIONS_MODEL = lateral_inhibition;
+                            PROJECTION_INFO = {
+                                TYPES =(V2_IV_V_E1.All,
+				     	V2_IV_V_E2.All,
+			   		V2_IV_V_I.All,
+					V2_IV_H_E1.All,
+					V2_IV_H_E2.All,
+					V2_IV_H_I.All,
+					V2_IV_C_E1.All,
+					V2_IV_C_E2.All,
+					V2_IV_C_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaA;
+                        }; 
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V2_IV_C_E1 = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V2_IV_C_E2 = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V2_IV_C_I = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Inh = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V2_Supra_H_E1 = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V2_Supra_H_E2 = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V2_Supra_H_I = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Inh = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V2_Supra_V_E1 = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	nmda = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Supra_V_E1.All,V2_Supra_V_E2.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = nmda;
+                        };
+                    	ampa = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_infra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Infra_V_E1.All,V2_Infra_V_E2.All,V2_Infra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_nmda = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Infra_V_E1.All,V2_Infra_V_E2.All,V2_Infra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = nmda;
+                        };
+                    	gabaB_other = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.5;
+                                    Height = 0.0;
+                                    Width = 0.0;
+                                    Radius = 1.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 4.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Supra_V_E1.All,V2_Supra_V_E2.All,V2_IV_V_E1.All,V2_IV_V_E2.All,V2_Infra_V_E1.All,V2_Infra_V_E2.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaB;
+                        }; 
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V2_Supra_V_E2 = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	nmda = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Supra_V_E1.All,V2_Supra_V_E2.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = nmda;
+                        };
+                    	ampa = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Supra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    	ampa_infra = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Infra_V_E1.All,V2_Infra_V_E2.All,V2_Infra_V_I.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = (nmda,ampa);
+                        };
+                    	gabaB_other = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.25;
+                                    Height = 0.0;
+                                    Width = 0.0;
+                                    Radius = 1.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 4.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (V2_Supra_V_E1.All,V2_Supra_V_E2.All,V2_IV_V_E1.All,V2_IV_V_E2.All,V2_Infra_V_E1.All,V2_Infra_V_E2.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaB;
+                        }; 
+                     };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V2_Supra_V_I = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Inh = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	gabaA = {
+                            CONNECTIONS_MODEL = lateral_inhibition;
+                            PROJECTION_INFO = {
+                                TYPES =(V2_Supra_V_E1.All,
+					V2_Supra_V_E2.All,
+					V2_Supra_V_I.All,
+					V2_Supra_H_E1.All,
+					V2_Supra_H_E2.All,
+					V2_Supra_H_I.All,
+					V2_Supra_C_E1.All,
+					V2_Supra_C_E2.All,
+					V2_Supra_C_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaA;
+                        }; 
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        V2_Supra_C_E1 = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V2_Supra_C_E2 = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        V2_Supra_C_I = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Inh = {
+                    INTRINSIC_CHANNELS = {
+                        stimulation = tms;
+                        INaP = persistent_sodium;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {};
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        NRT2 = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Inh = {
+                    INTRINSIC_CHANNELS = {
+                        INaP = persistent_sodium;
+                        It = lowthreshold_calcium;
+                    };
+                    CELL_COMPARTMENTS = {
+                        iaf = cortical_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    AFFERENT_CONNECTIONS = {};
+                    EFFERENT_CONNECTIONS = {
+                    	gabaA_nrt = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.5;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 1.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (NRT2.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaA;
+                        }; 
+                        gabaA_relay = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.1;
+                                    Width = 7.5;
+                                    Radius = 12.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_E.All,Thalamus2_I.All);
+                                XOFFSET = 0;
+                                YOFFSET = 0;
+                                XSCALE = "100 %";
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaA_relay;
+                        };
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+        Thalamus2_E = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Exc = {
+                    INTRINSIC_CHANNELS = {
+                        INaP = persistent_sodium;
+                        It = lowthreshold_calcium;
+                        Ih = cation;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = thalamic_relay;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	ampa_NRT2 = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 1.0;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "2.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 2.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (NRT2.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = ampa;
+                        }; 
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+	Thalamus2_I = {
+            NUMCOLUMNS = 30; 
+            NUMROWS = 30; 
+            TYPES = {
+                Inh = {
+                    CHANNEL_MODELS = {};
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        iaf = thalamic_interneuron;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                    	gabaA = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.3;
+                                    Width = 7.5;
+                                    Radius = 2.0;
+                                    Strength = "1.0 mV";
+                                    Type = Random;
+                                    MeanDelay = 1.0;
+                                    StdDelay = 0.25;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                TYPES = (Thalamus2_I.All,Thalamus2_E.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                                BOUNDARY_CONDITIONS = Periodic; 
+                            };
+                            CHANNEL_MODEL = gabaA_relay;
+                        }; 
+
+                    };
+                    PERCENTAGE = "100 %";
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+    }; 
+    MASTER_RANDOM_SEED = 3500; 
+    TIME_SCALE = 0.25;
+    INSPECTORS = {};
+}

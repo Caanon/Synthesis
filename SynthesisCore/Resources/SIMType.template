@@ -1,0 +1,30 @@
+{
+    CLASS_NAME = SIMType;
+    INSPECTOR_CLASS = SIMTypeInspector;
+    CELL_COMPARTMENTS = {};
+    INTRINSIC_CHANNELS = {};
+    INPUT_CHANNELS = {};
+    EFFERENT_CONNECTIONS = {};
+    AFFERENT_CONNECTIONS = {};
+    PERCENTAGE = 0;
+    PARAMETER_RANGES = {
+        CELL_COMPARTMENTS = {
+            INSPECTOR = SIMEditInspector;
+            TYPE = "CELL_COMPARTMENTS";
+        };
+        EFFERENT_CONNECTIONS = {
+            INSPECTOR = SIMEditInspector;
+            TYPE = "EFFERENT_CONNECTIONS";
+        };
+        AFFERENT_CONNECTIONS = {
+            INSPECTOR = SIMEditInspector;
+            TYPE = "AFFERENT_CONNECTIONS";
+        };
+	PERCENTAGE = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = intNumber;
+            RANGE = (1,100);
+            FORMAT = "%g \%";
+        };
+    };
+}

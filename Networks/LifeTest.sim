@@ -1,0 +1,227 @@
+{
+    COMMENTS = "LIFE Cellular Automata using BinaryCells and RelaySynapses"; 
+    CREATION_DATE = ""; 
+    INIT_CONNECTIONS_FLAG = No;
+    MODEL_LIBRARY = "file://localhost/Synthesis/Library/Life.models";
+    EX_INSPECTORS = {
+        CellInspector = {
+            FRAME = "621 452 350 200 0 0 1024 748 "; 
+            INSPECTOR_CLASS = SIMCellActivityInspector; 
+            PARAMETERS = {}; 
+        }; 
+        Layer01 = {
+            FRAME = "621 452 350 200 0 0 1024 748 "; 
+            INSPECTOR_CLASS = SIMNetworkActivityInspector; 
+            PARAMETERS = {}; 
+        }; 
+	"Activity" = {
+		INSPECTOR_CLASS = "SIMActivityMapInspector";
+            	FRAME = "512 287 350 200 0 0 1024 748 "; 
+		PARAMETERS = {};
+	};
+    }; 
+    LAYERS = {
+        Layer01 = {
+            NODE = 0;
+            NUMCOLUMNS = 50; 
+            NUMROWS = 50; 
+            PARAMETER_RANGES = {}; 
+            TYPES = {
+                Excitatory = {
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        binary = {
+                            CLASS_NAME = BinaryCell;
+                            PARAMETERS = {
+                                STATE_GENERATOR_SEED = 1;
+                                InitialDensity = 0.1;
+                                LifeMode = Yes;
+                            };
+                        };
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                        NearestNeighbor = {
+                            CONNECTIONS_MODEL = nearest_neighbor;
+                            PROJECTION_INFO = {
+                                BOUNDARY_CONDITIONS = Tiled;
+                                BOUNDARY_INFO = {
+                                    UPPER_EDGE = Layer03;
+                                    LOWER_EDGE = Layer03;
+                                    LEFT_EDGE = Layer02;
+                                    RIGHT_EDGE = Layer02;
+                                };
+                                TYPES = (Layer01.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                            };
+                            CHANNEL_MODEL = relay;
+                        };
+                    };
+                    PERCENTAGE = 100;
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        Layer02 = {
+            NODE = 0;
+            NUMCOLUMNS = 50; 
+            NUMROWS = 50; 
+            PARAMETER_RANGES = {}; 
+            TYPES = {
+                Excitatory = {
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        binary = {
+                            CLASS_NAME = BinaryCell;
+                            PARAMETERS = {
+                                STATE_GENERATOR_SEED = 2;
+                                InitialDensity = 0.1;
+                                LifeMode = Yes;
+                            };
+                        };
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                        NearestNeighbor = {
+                            CONNECTIONS_MODEL = nearest_neighbor;
+                            PROJECTION_INFO = {
+                                BOUNDARY_CONDITIONS = Tiled;
+                                BOUNDARY_INFO = {
+                                    UPPER_EDGE = Layer04;
+                                    LOWER_EDGE = Layer04;
+                                    LEFT_EDGE = Layer01;
+                                    RIGHT_EDGE = Layer01;
+                                };
+                                TYPES = (Layer02.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                            };
+                            CHANNEL_MODEL = relay;
+                        };
+                    };
+                    PERCENTAGE = 100;
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        Layer03 = {
+            NUMCOLUMNS = 50; 
+            NUMROWS = 50; 
+            PARAMETER_RANGES = {}; 
+            TYPES = {
+                Excitatory = {
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        binary = {
+                            CLASS_NAME = BinaryCell;
+                            PARAMETERS = {
+                                STATE_GENERATOR_SEED = 3;
+                                InitialDensity = 0.1;
+                                LifeMode = Yes;
+                            };
+                        };
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                        NearestNeighbor = {
+                            CONNECTIONS_MODEL = nearest_neighbor;
+                            PROJECTION_INFO = {
+                                BOUNDARY_CONDITIONS = Tiled;
+                                BOUNDARY_INFO = {
+                                    UPPER_EDGE = Layer01;
+                                    LOWER_EDGE = Layer01;
+                                    LEFT_EDGE = Layer04;
+                                    RIGHT_EDGE = Layer04;
+                                };
+                                TYPES = (Layer03.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                            };
+                            CHANNEL_MODEL = relay;
+                        };
+                    };
+                    PERCENTAGE = 100;
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+        Layer04 = {
+            NUMCOLUMNS = 50; 
+            NUMROWS = 50; 
+            PARAMETER_RANGES = {}; 
+            TYPES = {
+                Excitatory = {
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        binary = {
+                            CLASS_NAME = BinaryCell;
+                            PARAMETERS = {
+                                STATE_GENERATOR_SEED = 4;
+                                InitialDensity = 0.1;
+                                LifeMode = Yes;
+                            };
+                        };
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                        NearestNeighbor = {
+                            CONNECTIONS_MODEL = nearest_neighbor;
+                            PROJECTION_INFO = {
+                                BOUNDARY_CONDITIONS = Tiled;
+                                BOUNDARY_INFO = {
+                                    UPPER_EDGE = Layer02;
+                                    LOWER_EDGE = Layer02;
+                                    LEFT_EDGE = Layer03;
+                                    RIGHT_EDGE = Layer03;
+                                };
+                                TYPES = (Layer04.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                            };
+                            CHANNEL_MODEL = relay;
+                        };
+                    };
+                    PERCENTAGE = 100;
+                }; 
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        }; 
+    }; 
+    NAME = "Test Life version 1.0"; 
+    STIMULUS_GENERATOR_SEED = 1000; 
+    TIME_SCALE = 1.0;
+    AGENTS = {
+       dataGatherer = {
+            CLASS_NAME = DataAgent;
+            PARAMETERS = {
+                    Filename = "/tmp/data.out";
+                    Type = ActualMembranePotential;
+                    Layers = (Layer01);
+                    Position_x = 19;
+                    Position_y = 19;
+                    Size = 10;
+            };
+        };
+        lfp = {
+            CLASS_NAME = DataAgent;
+            PARAMETERS = {
+                    Filename = "/tmp/data.lfp";
+                    Type = AverageMembranePotential;
+                    Layers = (Layer01);
+                    Position_x = 19;
+                    Position_y = 19;
+                    Radius = 10;
+                    //Size = 10;
+            };
+        };
+    };
+}

@@ -1,0 +1,14 @@
+{
+    CLASS_NAME = SIMPatternGenerator;
+    INSPECTOR_CLASS = SIMPatternGenerator;
+    PARAMETERS = {
+        XSpaceConstant = 1.0;
+	YSpaceConstant = 1.0;
+	ZSpaceConstant = 1.0;
+	StartTime = "0.0 ms";
+	Duration = "100.0 ms";
+        Interval = "1000.0 ms";
+    };
+    PARAMETER_RANGES = {
+    }
+}

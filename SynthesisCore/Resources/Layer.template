@@ -1,0 +1,37 @@
+{
+    NUMCOLUMNS = 10; 
+    NUMROWS = 10;
+    NODE = 0;
+    TYPE_DISTRIBUTION = Sobol;
+    TYPES = {};
+    PARAMETER_RANGES = {
+	    HOMOGENEOUS_CONNECTIONS = {
+		    INSPECTOR = SIMBoolInspector;
+		    SELECTOR = boolValue;
+		    RANGE = (NO,YES);
+		    FORMAT = "%@";
+	    };
+	    NUMCOLUMNS = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = intNumber;
+		    RANGE = (5,250);
+		    FORMAT = "%g";
+	    };
+	    NUMROWS = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = intNumber;
+		    RANGE = (5,250);
+		    FORMAT = "%g";
+	    };
+	    TYPE_DISTRIBUTION = {
+		    INSPECTOR = SIMArrayInspector;
+		    SELECTOR = stringValue;
+		    RANGE = (Random,Sobol);
+		    FORMAT = "%@";
+	    };
+            TYPES = {
+                INSPECTOR = SIMEditInspector;
+                TYPE = "TYPES";
+            };
+    };
+}

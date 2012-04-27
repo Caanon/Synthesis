@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "GLOBAL">
+         <PersistentStrings>
+            <PersistentString
+               value = "element-&gt;inputChannel[_assignedIndex]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMNetwork updateIntrinsicChannelsInLayers:]:SIMNetwork.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "layers[l][row][col]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMColorDataView setData:byteOrder:]:SIMColorDataView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.tiff">
+            </PersistentString>
+            <PersistentString
+               value = "self.tiff._dataObj">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMColorDataView drawRect:]:SIMColorDataView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.tiff">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMInspector registerForNotifications]:SIMInspector.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.HostName">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMNetwork(SIMNetworkNode) connectToNode:]:SIMNetworkNode.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "(SIMNode *)self-&gt;nodeInfo">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMNetwork _initTypes]:SIMNetwork.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[XYPlotView drawRect:]:XYPlotView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMColorDataView initSize::]:SIMColorDataView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMSimulation ok:]:SIMSimulation.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMModel indexOfVariable:]:SIMModel.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "NSNotFound">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMType updateInputChannelState:dt:time:]:SIMType.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMNetwork(SIMRemoteNetwork) swappedValuesForCellCompartment:atIndex:withType:forLayer:]:SIMNetworkStatistics.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "layers[l][i][j].cell">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[XYPlotData setData:forKey:]:XYPlotData.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMNetwork updateCellsInLayers:]:SIMNetwork.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "layers[0][0][0]">
+            </PersistentString>
+            <PersistentString
+               value = "layers[0][0][0].cell[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMModel updateState:dt:time:]:SIMModel.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_integrationMethod">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "+[NSMutableValueArray valueArrayWithObjCType:]:NSValueArray.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[NSConcreteMutableValueArray initWithValues:count:withObjCType:]:NSValueArray.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[BinaryCell updateState:dt:time:]:BinaryCell.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "SIM_RestingState">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMNetworkActivityInspector inspect:]:SIMNetworkActivityInspector.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[XYPlotView(XYPlotViewPublicAPI) plotValues::]:XYPlotViewAPI.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[RelaySynapse updateState:dt:time:]:RelaySynapse.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "element-&gt;inputChannel[0][1]">
+            </PersistentString>
+            <PersistentString
+               value = "element-&gt;inputChannel[0][0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMNetworkActivityInspector display]:SIMNetworkActivityInspector.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMColorDataView initWithFrame:]:SIMColorDataView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.colorbarFont">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[NSDictionary(SIMDictionaryExtensions) objectAtPath:]:SIMCategories.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMInputChannel allocState:]:SIMInputChannel.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SIMColorDataView setColorPaletteFromColorListWithName:]:SIMColorDataView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.colorbarFont">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

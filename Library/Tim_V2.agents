@@ -1,0 +1,87 @@
+{
+    dataTest = {
+        CLASS_NAME = LayerDataAgent;
+        PARAMETERS = {
+            Filename = "/home/blakely/Timtest/Data/conductances.out";
+            Layers = (Thalamus1_E,Thalamus1_I, NRT, V1_IV_V_E1, V1_Supra_V_E1, V1_Infra_V_E1,
+                        V1_IV_H_E1, V1_Supra_H_E1, V1_Infra_H_E1, V1_IV_V_I, V1_Supra_V_I,
+                        V1_Infra_V_I, V1_IV_H_I, V1_Supra_H_I, V1_Infra_H_I, V1_IV_V_E2, 
+                        V1_Supra_V_E2, V1_Infra_V_E2, V1_IV_H_E2, V1_Supra_H_E2, V1_Infra_H_E2);
+	    Variable = "ampa.g";
+            DataType = InputChannel;
+            Type = Exc;
+        };
+    };
+    dataSet1 = {
+        CLASS_NAME = DataAgent;
+        PARAMETERS = {
+            Filename = "/home/blakely/Timtest/Data/Waking.out";
+            Layers = (Thalamus1_E,Thalamus1_I, NRT, V1_IV_V_E1, V1_Supra_V_E1, V1_Infra_V_E1,
+                        V1_IV_H_E1, V1_Supra_H_E1, V1_Infra_H_E1, V1_IV_V_I, V1_Supra_V_I,
+                        V1_Infra_V_I, V1_IV_H_I, V1_Supra_H_I, V1_Infra_H_I, V1_IV_V_E2, 
+                        V1_Supra_V_E2, V1_Infra_V_E2, V1_IV_H_E2, V1_Supra_H_E2, V1_Infra_H_E2);
+            Position_x = 19;
+            Position_y = 19;
+            Size = 40;
+            Type = ActualMembranePotential;
+        };
+    };
+    dataSet2 = {
+        CLASS_NAME = DataAgent;
+        PARAMETERS = {
+            Filename = "/home/blakely/Timtest/Data/Waking.lfp";
+            Layers = (Thalamus1_E,Thalamus1_I, NRT, V1_IV_V_E1, V1_Supra_V_E1, V1_Infra_V_E1,
+                        V1_IV_H_E1, V1_Supra_H_E1, V1_Infra_H_E1, V1_IV_V_I, V1_Supra_V_I,
+                        V1_Infra_V_I, V1_IV_H_I, V1_Supra_H_I, V1_Infra_H_I, V1_IV_V_E2, 
+                        V1_Supra_V_E2, V1_Infra_V_E2, V1_IV_H_E2, V1_Supra_H_E2, V1_Infra_H_E2);
+            Position_x = 19;
+            Position_y = 19;
+            Radius = 20;
+            Type = AverageFieldPotential;
+        };
+    };
+    dataSet3 = {
+        CLASS_NAME = DataAgent;
+        PARAMETERS = {
+            Filename = "/home/blakely/Timtest/Data/V2Waking.out";
+            Layers = (Thalamus2_E,Thalamus2_I, NRT2, V2_IV_V_E1, V2_Supra_V_E1, V2_Infra_V_E1,
+                        V2_IV_H_E1, V2_Supra_H_E1, V2_Infra_H_E1, V2_IV_C_E1, V2_Supra_C_E1, 
+                        V2_Infra_C_E1, V2_IV_V_I, V2_Supra_V_I,
+                        V2_Infra_V_I, V2_IV_H_I, V2_Supra_H_I, V2_Infra_H_I, V2_IV_C_I,
+                        V2_Supra_C_I, V2_Infra_C_I, V2_IV_V_E2,
+                        V2_Supra_V_E2, V2_Infra_V_E2, V2_IV_H_E2, V2_Supra_H_E2, 
+                        V2_Infra_H_E2, V2_IV_C_E2, V2_Supra_C_E2, V2_Infra_C_E2);
+            Position_x = 14;
+            Position_y = 14;
+            Size = 30;
+            Type = ActualMembranePotential;
+        };
+    };
+    dataSet4 = {
+        CLASS_NAME = DataAgent;
+        PARAMETERS = {
+            Filename = "/home/blakely/Timtest/Data/V2Waking.lfp";
+            Layers = (Thalamus2_E,Thalamus2_I, NRT2, V2_IV_V_E1, V2_Supra_V_E1, V2_Infra_V_E1,
+                        V2_IV_H_E1, V2_Supra_H_E1, V2_Infra_H_E1, V2_IV_C_E1, V2_Supra_C_E1, 
+                        V2_Infra_C_E1, V2_IV_V_I, V2_Supra_V_I,
+                        V2_Infra_V_I, V2_IV_H_I, V2_Supra_H_I, V2_Infra_H_I, V2_IV_C_I,
+                        V2_Supra_C_I, V2_Infra_C_I, V2_IV_V_E2, 
+                        V2_Supra_V_E2, V2_Infra_V_E2, V2_IV_H_E2, V2_Supra_H_E2, 
+                        V2_Infra_H_E2, V2_IV_C_E2, V2_Supra_C_E2, V2_Infra_C_E2);
+            Position_x = 14;
+            Position_y = 14;
+            Radius = 15;
+            Type = AverageFieldPotential;
+        };
+    };
+	supraVesicle = {
+		CLASS_NAME = LayerDataAgent;
+		PARAMETERS = {
+					Filename = "/home/blakely/Timtest/Data/supra_vesicle.out";
+					DataType = CellCompartment;
+					Pattern = ("V1_Supra_V_E1.Exc.iaf.VesiclePool"); // (Layer.Type.Model.Variable,*.*.*.*,etc)
+					SampleInterval = 0.0;
+					RootPath = "/";
+		};
+	};
+}

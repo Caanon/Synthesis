@@ -1,0 +1,83 @@
+{
+    CLASS_NAME = PulseIntegrateAndFireV1;
+    PARAMETERS = {
+        SodiumLeakConductance = "0.2 pS";
+        PotassiumLeakConductance = "1.0 pS";
+		MembraneTimeConstant = "8.0 ms";
+		ThresholdTimeConstant = "1 ms";
+		RestingThreshold = "-51 mV";
+		PotassiumReversalPotential = "-90.0 mV";
+		SodiumReversalPotential = "30 mV";
+        SpikeTimeConstant = "0.75";
+        SpikeDuration = "1.0 ms";
+        MiniThreshold = .75;
+        PeakMiniRate = "2 Hz";
+        VesiclePeak = "1.0";
+        VesicleRelease = ".5 per spike";
+        VesicleRecoveryTimeConstant = "500 ms";
+        INTEGRATION_METHOD = RungeKutta4thOrder;
+    };
+    VARIABLES = {
+        State = {TYPE = SIMActivityStateValue; INDEX = 0;};
+        MembranePotential = {TYPE = double; INDEX = 1;};
+        Threshold = {TYPE = double; INDEX = 2;};
+        VesiclePool = {TYPE = double; INDEX = 3;};
+        LastSpikeTime = {TYPE = float; INDEX = 4;};
+    };
+    PARAMETER_RANGES = {
+        INTEGRATION_METHOD = {
+            INSPECTOR = SIMArrayInspector;
+            SELECTOR = stringValue;
+            RANGE = (None,ForwardEuler,RungeKutta4thOrder);
+            FORMAT = "%@";
+        };
+	RestingPotential = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("-120",0.0);
+            FORMAT = "%0.2g mV";
+	};
+	RestingThreshold = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("-90",0.0);
+            FORMAT = "%0.2g mV";
+	};
+	ThresholdTimeConstant = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("1",100);
+            FORMAT = "%0.2g ms";
+	};
+	PotassiumReversalPotential = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("-100",0.0);
+            FORMAT = "%0.2g mV";
+	};
+	SodiumReversalPotential = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("-20",50.0);
+            FORMAT = "%0.2g mV";
+	};
+	SodiumLeakConductance = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("0.0",10.0);
+            FORMAT = "%0.2g mS";
+	};
+	PotassiumLeakConductance = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("0.0",10.0);
+            FORMAT = "%0.2g mS";
+	};
+	MiniThreshold = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("0.0",1.0);
+            FORMAT = "%0.2g";
+	};
+    };
+}

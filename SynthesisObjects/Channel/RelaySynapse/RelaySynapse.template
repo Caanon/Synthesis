@@ -1,0 +1,11 @@
+{
+	HELP = "";
+	CLASS_NAME = RelaySynapse;
+	INSPECTOR_CLASS = "";
+	PARAMETER_RANGES = {};
+	VARIABLES = {
+            INPUT = {TYPE = double; INDEX = 0;};
+            OUTPUT = {TYPE = double; INDEX = 1;};
+        };
+	PARAMETERS = {};
+}

@@ -1,0 +1,17 @@
+{
+    HELP = "";
+    CLASS_NAME = SIMModel;
+    VARIABLES = {};
+    INDEX = 0;
+    PARAMETERS = {
+        INTEGRATION_METHOD = None;
+    };
+    PARAMETER_RANGES = {
+        INTEGRATION_METHOD = {
+                INSPECTOR = SIMArrayInspector;
+                SELECTOR = stringValue;
+                RANGE = (None,ForwardEuler,RungeKutta4thOrder);
+                FORMAT = "%@";
+        };
+    };
+}

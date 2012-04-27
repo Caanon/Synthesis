@@ -1,0 +1,24 @@
+{
+    CLASS_NAME = PatternBasedNeuron;
+    PARAMETERS = {
+	RefractoryPeriod = "3 ms";
+        PatternGenerator = {
+            CLASS_NAME = MovingGrating; 
+            PARAMETERS = {
+                XSpaceConstant = 40.0;
+                YSpaceConstant = 40.0;
+                XSpatialFrequency = 0.0;
+                YSpatialFrequency = 0.0;
+                Velocity = 20.0;
+                StartTime =  0.0;
+                Duration = 100.0;
+                Interval = 1000.0;
+            }; 
+        }; 
+    };
+    VARIABLES = {
+        State = {TYPE = SIMActivityStateValue; INDEX = 0;};
+        Potential = {TYPE = double; INDEX = 1;};
+        Refractory = {TYPE = double; INDEX = 2;};
+    };
+}

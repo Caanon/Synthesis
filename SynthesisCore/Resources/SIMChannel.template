@@ -1,0 +1,10 @@
+{
+	HELP = "";
+	CLASS_NAME = SIMChannel; 
+	INSPECTOR_CLASS = "SIMChannelInspector";
+	PARAMETERS = {};
+	PARAMETER_RANGES = {};
+	VARIABLES = {
+		OUTPUT = {TYPE = double; INDEX = 0;};
+	};
+}

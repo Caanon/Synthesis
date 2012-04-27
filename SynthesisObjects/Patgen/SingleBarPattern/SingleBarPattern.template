@@ -1,0 +1,45 @@
+{
+    CLASS_NAME = SingleBarPattern;
+    PARAMETERS = {
+        CenterX = 0.0;
+        CenterY = 0.0;
+        Angle = "45.0 degrees";
+        Thickness = 1.0;
+        Length = 10.0;
+	StartTime =  0.0;
+	Duration = 1.0;
+	Interval = 100.0;
+    };
+    PARAMETER_RANGES = {
+        CenterX = {
+                INSPECTOR = SIMNumberInspector;
+                SELECTOR = intNumber;
+                RANGE = (0.0,50.0);
+                FORMAT = "%.2g";
+        };
+        CenterY = {
+                INSPECTOR = SIMNumberInspector;
+                SELECTOR = intNumber;
+                RANGE = (0.0,50.0);
+                FORMAT = "%.2g";
+        };
+        Length = {
+                INSPECTOR = SIMNumberInspector;
+                SELECTOR = intNumber;
+                RANGE = (0.0,50.0);
+                FORMAT = "%.2g";
+        };
+        Thickness = {
+                INSPECTOR = SIMNumberInspector;
+                SELECTOR = intNumber;
+                RANGE = (0.0,50.0);
+                FORMAT = "%g";
+        };
+        Angle = {
+                INSPECTOR = SIMNumberInspector;
+                SELECTOR = floatNumber;
+                RANGE = (0.0,360.0);
+                FORMAT = "%g degrees";
+        };
+    };
+}

@@ -1,0 +1,24 @@
+{
+	CLASS_NAME = CurrentsAgent;
+	INSPECTOR_CLASS = "";
+	PARAMETERS = {
+                Filename = "data.out";
+                Types = (Cortex.Inhibitory.NMDA,NRT.Inh.gabaB);
+                CurrentType = Intrinsic;
+                Position_x = 19;
+                Position_y = 19;
+                Layer = Cortex;
+                SampleInterval = 0.0;
+				RootPath = "/";
+	};
+        NOTIFICATION = "NetworkDidUpdate";
+        SELECTOR = "gatherData";
+	PARAMETER_RANGES = {
+	    CurrentType = {
+		    INSPECTOR = SIMArrayInspector;
+		    SELECTOR = stringValue;
+		    RANGE = (Intrinsic,Input);
+		    FORMAT = "%@";
+	    };
+        };
+}

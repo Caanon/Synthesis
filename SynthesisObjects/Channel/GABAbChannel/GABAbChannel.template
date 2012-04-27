@@ -1,0 +1,68 @@
+{
+    CLASS_NAME = GABAbChannel;
+    PARAMETERS = {
+        INTEGRATION_METHOD = RungeKutta4thOrder;
+        Cmax = 1; 
+        Cdur = 1; 
+        Deadtime = 1; 
+        K1 = "0.09"; 
+        K2 = "0.0012"; 
+        K3 = "0.18"; 
+        K4 = "0.034"; 
+        KD = 100; 
+        n = 4; 
+        Erev = "-95"; 
+        gmax = "1.0";
+    };
+    DELAY = {
+        Active = Yes;
+        Distribution = Gaussian;
+        Mean = "0.0 ms";
+        Std = "0.0 ms";
+    };
+    PARAMETER_RANGES = {
+	K1 = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("0.1",50.0);
+            FORMAT = "%0.2g ms";
+	};
+	K2 = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("0.1",50.0);
+            FORMAT = "%0.2g ms";
+	};
+	K3 = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("0.1",50.0);
+            FORMAT = "%0.2g ms";
+	};
+	K4 = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("0.1",50.0);
+            FORMAT = "%0.2g ms";
+	};
+	gmax = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = (".001","1.0");
+            FORMAT = "%g";
+	};
+	Erev = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = ("-90.0","-10.0");
+            FORMAT = "%g mV";
+	};
+    };
+    VARIABLES = {
+        INPUT = {TYPE = double; INDEX = 0;};
+        OUTPUT = {TYPE = double; INDEX = 1;};
+        g = {TYPE = double; INDEX = 2;};
+        R = {TYPE = double; INDEX = 3;};
+        G = {TYPE = double; INDEX = 4;};
+    };
+}

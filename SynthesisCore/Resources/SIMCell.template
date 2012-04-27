@@ -1,0 +1,13 @@
+{
+	HELP = "";
+	CLASS_NAME = SIMCell; 
+	INSPECTOR_CLASS = "SIMCellInspector";
+	PARAMETERS = {
+            INTEGRATION_METHOD = None;
+        };
+	PARAMETER_RANGES = {};
+	VARIABLES = {
+            STATE = {TYPE = SIMActivityStateValue; INDEX = 0;};
+            POTENTIAL = {TYPE = double; INDEX = 1;};
+        };
+}

@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   version = "1.3">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35E315C215096ABC0005BF1D"
+               BuildableName = "Desiderata.framework"
+               BlueprintName = "Desiderata"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3596B7AE1509951A00730ED3"
+               BuildableName = "PseudoRandomNum.framework"
+               BlueprintName = "PseudoRandomNum"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3596B7C9150997FD00730ED3"
+               BuildableName = "SynthesisCore.framework"
+               BlueprintName = "SynthesisCore"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35E315EB1509740C0005BF1D"
+               BuildableName = "XYPlot.framework"
+               BlueprintName = "XYPlot"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3519C842150E650C00A7A681"
+               BuildableName = "SynthesisInterface.framework"
+               BlueprintName = "SynthesisInterface"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "359907641509BBE000966EB2"
+               BuildableName = "PoissonNeuronTMS.cell"
+               BlueprintName = "PoissonNeuronTMS"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "359907901509C1B600966EB2"
+               BuildableName = "SynthesisServer"
+               BlueprintName = "SynthesisServer"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "359907B5150A9BF500966EB2"
+               BuildableName = "BinaryCell.cell"
+               BlueprintName = "BinaryCell"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35F335FC150ABA15004076AC"
+               BuildableName = "IntAndFire.cell"
+               BlueprintName = "IntAndFire"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35F3361D150ABC92004076AC"
+               BuildableName = "RelaySynapse.channel"
+               BlueprintName = "RelaySynapse"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35F33642150AC15F004076AC"
+               BuildableName = "Gaussian.connections"
+               BlueprintName = "Gaussian"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35F33663150AC37F004076AC"
+               BuildableName = "DataAgent.agent"
+               BlueprintName = "DataAgent"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35F33687150AC52C004076AC"
+               BuildableName = "SynthesisTool"
+               BlueprintName = "SynthesisTool"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3519C884150E776F00A7A681"
+               BuildableName = "Synthesis.app"
+               BlueprintName = "Synthesis"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3519C8F5150EC16900A7A681"
+               BuildableName = "SIMDictionaryInspector.bundle"
+               BlueprintName = "SIMDictionaryInspector"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35726C0D150FB3350096487F"
+               BuildableName = "SIMActivityInspector.bundle"
+               BlueprintName = "SIMActivityInspector"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35726C23150FB6B70096487F"
+               BuildableName = "SIMNetworkActivityInspector.bundle"
+               BlueprintName = "SIMNetworkActivityInspector"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35726C39150FB8120096487F"
+               BuildableName = "SIMConnectionMatrixInspector.bundle"
+               BlueprintName = "SIMConnectionMatrixInspector"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35726C4F150FB9450096487F"
+               BuildableName = "SIMActivityMapInspector.bundle"
+               BlueprintName = "SIMActivityMapInspector"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "357C0098151150DF00ACD37B"
+               BuildableName = "SIMStringInspector.bundle"
+               BlueprintName = "SIMStringInspector"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "357C00D0151151EC00ACD37B"
+               BuildableName = "SIMTypeInspector.bundle"
+               BlueprintName = "SIMTypeInspector"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3596C1261513BC0B00F5D9ED"
+               BuildableName = "SIMEditInspector.bundle"
+               BlueprintName = "SIMEditInspector"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3596C13F1513C01A00F5D9ED"
+               BuildableName = "SIMBoolInspector.bundle"
+               BlueprintName = "SIMBoolInspector"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3596C17E1513C77100F5D9ED"
+               BuildableName = "SIMArrayInspector.bundle"
+               BlueprintName = "SIMArrayInspector"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3596C18E1513C77F00F5D9ED"
+               BuildableName = "SIMFilePathInspector.bundle"
+               BlueprintName = "SIMFilePathInspector"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3596C16E1513C76600F5D9ED"
+               BuildableName = "SIMModelInspector.bundle"
+               BlueprintName = "SIMModelInspector"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3596C15E1513C75B00F5D9ED"
+               BuildableName = "SIMNumberInspector.bundle"
+               BlueprintName = "SIMNumberInspector"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35D7A27C1513DA2100036E1D"
+               BuildableName = "SIMCellDataAgentInspector.bundle"
+               BlueprintName = "SIMCellDataAgentInspector"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35D7A28F1513DAC500036E1D"
+               BuildableName = "CellDataAgent.agent"
+               BlueprintName = "CellDataAgent"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35AB2C9015179ECE009A9BB1"
+               BuildableName = "SIMPatternInspector.bundle"
+               BlueprintName = "SIMPatternInspector"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35AB2CBD15179FB9009A9BB1"
+               BuildableName = "SIMCellActivityInspector.bundle"
+               BlueprintName = "SIMCellActivityInspector"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35AB2CAD15179F90009A9BB1"
+               BuildableName = "SIMConnectionsInspector.bundle"
+               BlueprintName = "SIMConnectionsInspector"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35658C741517E29E003B33DA"
+               BuildableName = "PulseIntegrateAndFire.cell"
+               BlueprintName = "PulseIntegrateAndFire"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35658C941517E479003B33DA"
+               BuildableName = "IhChannel.channel"
+               BlueprintName = "IhChannel"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35658CAB1517E4FA003B33DA"
+               BuildableName = "SynChannel.channel"
+               BlueprintName = "SynChannel"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35658CD21517E961003B33DA"
+               BuildableName = "INaPChannel.channel"
+               BlueprintName = "INaPChannel"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35658D001517EA7C003B33DA"
+               BuildableName = "IKNaChannel.channel"
+               BlueprintName = "IKNaChannel"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35658D1E1517FAE1003B33DA"
+               BuildableName = "ItChannel.channel"
+               BlueprintName = "ItChannel"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35658D3D1517FB7E003B33DA"
+               BuildableName = "GABAbChannel.channel"
+               BlueprintName = "GABAbChannel"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35658D5A1517FEFC003B33DA"
+               BuildableName = "PatternBasedCurrentChannel.channel"
+               BlueprintName = "PatternBasedCurrentChannel"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35658D781517FF9D003B33DA"
+               BuildableName = "RectangularConnections.connections"
+               BlueprintName = "RectangularConnections"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35658D971518005E003B33DA"
+               BuildableName = "SynNMDAChannel.channel"
+               BlueprintName = "SynNMDAChannel"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35658DD01518013F003B33DA"
+               BuildableName = "PatternBasedNeuron.cell"
+               BlueprintName = "PatternBasedNeuron"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35658E041518E992003B33DA"
+               BuildableName = "PoissonNeuron.cell"
+               BlueprintName = "PoissonNeuron"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35658E221518EA75003B33DA"
+               BuildableName = "CurrentsAgent.agent"
+               BlueprintName = "CurrentsAgent"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35658E401518EDC7003B33DA"
+               BuildableName = "LayerDataAgent.agent"
+               BlueprintName = "LayerDataAgent"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35658E601518F212003B33DA"
+               BuildableName = "GaussianPattern.patgen"
+               BlueprintName = "GaussianPattern"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35658E7E1518F2CF003B33DA"
+               BuildableName = "SingleBarPattern.patgen"
+               BlueprintName = "SingleBarPattern"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35781AD7151A9B670076D66C"
+               BuildableName = "MovingPlaid.patgen"
+               BlueprintName = "MovingPlaid"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35DD62FB152A6E7A00749A18"
+               BuildableName = "PulseIntegrateAndFireV1.cell"
+               BlueprintName = "PulseIntegrateAndFireV1"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35DD631A152A6F3200749A18"
+               BuildableName = "SynChannelV1.channel"
+               BlueprintName = "SynChannelV1"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35DD6353152A6F9F00749A18"
+               BuildableName = "SynNMDAChannelV1.channel"
+               BlueprintName = "SynNMDAChannelV1"
+               ReferencedContainer = "container:Timtest.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      buildConfiguration = "Debug">
+      <Testables>
+      </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "359907901509C1B600966EB2"
+            BuildableName = "SynthesisServer"
+            BlueprintName = "SynthesisServer"
+            ReferencedContainer = "container:Timtest.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+   </TestAction>
+   <LaunchAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "callgraph"
+      debugDocumentVersioning = "YES"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "359907901509C1B600966EB2"
+            BuildableName = "SynthesisServer"
+            BlueprintName = "SynthesisServer"
+            ReferencedContainer = "container:Timtest.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "-Network ~/Desktop/Timtest/Networks/large_timtest.sim"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-Network ~/Desktop/Timtest/Networks/SimpleSlowOsc.sim"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-Network ~/Desktop/Timtest/Networks/SimpleSpindle.sim"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-Network ~/Desktop/Timtest/Networks/V1.sim"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-Network ~/Desktop/Timtest/Networks/V2.sim"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-Network ~/Desktop/Timtest/Networks/V1-grating.sim"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-Network /home/blakely/Timtest/Networks/LifeTest.sim"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-Network /home/blakely/Timtest/Networks/Tim_V1-grating.sim"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-Network /home/blakely/Timtest/Networks/Tim_V2-v_only.sim"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-Script /home/blakely/Timtest/Scripts/Profiling_V1Grating.script"
+            isEnabled = "NO">
+         </CommandLineArgument>
+      </CommandLineArguments>
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </LaunchAction>
+   <ProfileAction
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "359907901509C1B600966EB2"
+            BuildableName = "SynthesisServer"
+            BlueprintName = "SynthesisServer"
+            ReferencedContainer = "container:Timtest.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Debug"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>

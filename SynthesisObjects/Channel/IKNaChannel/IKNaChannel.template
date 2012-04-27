@@ -1,0 +1,26 @@
+{
+    CLASS_NAME = IKNaChannel;
+    PARAMETERS = {
+        INTEGRATION_METHOD = RungeKutta4thOrder;
+        gPeak = "1.0";
+        Erev = "-90.0 mV";
+        SodiumInfluxPeak = "0.025";
+        SodiumEquilibrium = "0.001";
+        SodiumTimeConstant = "1250 ms";
+        SodiumThreshold = "-10 mV";
+        SodiumThresholdSlope = "5";
+    };
+    PARAMETER_RANGES = {
+	gPeak = {
+            INSPECTOR = SIMNumberInspector;
+            SELECTOR = doubleNumber;
+            RANGE = (".001","1.0");
+            FORMAT = "%g";
+	};
+    };
+    VARIABLES = {
+        OUTPUT = {TYPE = double; INDEX = 0;};
+        G = {TYPE = double; INDEX = 1;};
+        NA = {TYPE = double; INDEX = 2;};
+    };
+}

@@ -1,0 +1,9 @@
+{
+    HELP = "";
+    CLASS_NAME = SIMConnections;
+    INSPECTOR_CLASS = SIMConnectionsInspector;
+    PARAMETER_RANGES = {};
+    PARAMETERS = {
+        Radius = 1.0;
+    };
+}

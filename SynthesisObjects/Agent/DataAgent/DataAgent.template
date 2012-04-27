@@ -1,0 +1,18 @@
+{
+	CLASS_NAME = DataAgent;
+	INSPECTOR_CLASS = "";
+	PARAMETERS = {
+                Filename = "data.out";
+                Type = ActualMembranePotential;
+                Layers = ();
+                Position_x = 19;
+                Position_y = 19;
+                Size = 10;
+                Radius = 5;
+                Sampleinterval = 0.0;
+				RootPath = "/";
+	};
+	NOTIFICATION = "NetworkDidUpdate";
+	SELECTOR = "gatherData";
+	PARAMETER_RANGES = {};
+}

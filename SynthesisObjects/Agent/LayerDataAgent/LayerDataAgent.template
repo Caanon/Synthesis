@@ -1,0 +1,14 @@
+{
+	CLASS_NAME = LayerDataAgent;
+	INSPECTOR_CLASS = "";
+	PARAMETERS = {
+                Filename = "data.out";
+				DataType = InputChannel;
+				Pattern = ("*.*.*.*"); // (Layer.Type.Model.Variable,*.*.*.*,etc)
+                SampleInterval = 0.0;
+				RootPath = "/";
+	};
+	NOTIFICATION = "NetworkDidUpdate";
+	SELECTOR = "gatherData";
+	PARAMETER_RANGES = {};
+}

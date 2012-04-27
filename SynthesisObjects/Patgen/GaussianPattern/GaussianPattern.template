@@ -1,0 +1,68 @@
+{
+    CLASS_NAME = GaussianPattern;
+    PARAMETERS = {
+        CenterX = 0.0;
+        CenterY = 0.0;
+        Radius = 0.0;
+        Constant = 0.0;
+        Peak = 1.0;
+        Width = 1.0;
+        StandardDeviation = 0.0;
+		StartTime =  0.0;
+		Duration = 1.0;
+		Interval = 100.0;
+		VelocityX = 1.0;
+		VelocityY = 0.0;
+		LimitX = 100;
+		LimitY = 1;
+		RandomSeed = 1000;
+		Spacing = 10;
+		VarianceX = 0;
+		VarianceY = 0;
+		Invert = No;
+    };
+    PARAMETER_RANGES = {
+        CenterX = {
+                INSPECTOR = SIMNumberInspector;
+                SELECTOR = intNumber;
+                RANGE = (0.0,50.0);
+                FORMAT = "%.2g";
+        };
+        CenterY = {
+                INSPECTOR = SIMNumberInspector;
+                SELECTOR = intNumber;
+                RANGE = (0.0,50.0);
+                FORMAT = "%.2g";
+        };
+        Radius = {
+                INSPECTOR = SIMNumberInspector;
+                SELECTOR = intNumber;
+                RANGE = (0.0,50.0);
+                FORMAT = "%.2g";
+        };
+        Constant = {
+                INSPECTOR = SIMNumberInspector;
+                SELECTOR = floatNumber;
+                RANGE = (0.0,1.0);
+                FORMAT = "%.2g";
+        };
+        Peak = {
+                INSPECTOR = SIMNumberInspector;
+                SELECTOR = floatNumber;
+                RANGE = (0.0,1000.0);
+                FORMAT = "%.2g";
+        };
+        Width = {
+                INSPECTOR = SIMNumberInspector;
+                SELECTOR = floatNumber;
+                RANGE = (0.0,50.0);
+                FORMAT = "%.2g";
+        };
+        StandardDeviation = {
+                INSPECTOR = SIMNumberInspector;
+                SELECTOR = floatNumber;
+                RANGE = (0.0,1.0);
+                FORMAT = "%.2g";
+        };
+    };
+}

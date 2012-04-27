@@ -1,0 +1,73 @@
+{
+    COMMENTS = "Single cell (using PulseIntegrateAndFire) for testing purposes.  Add any new synaptic channels to CHANNEL_MODELS"; 
+    CREATION_DATE = ""; 
+    MODEL_LIBRARY = "file://localhost/home/blakely/Timtest/Library/Tim_V1.models";
+    INIT_CONNECTIONS_FLAG = No; 
+    NUM_PROCESSORS = 1;
+    LAYERS = {
+        Cortex = {
+            NUMCOLUMNS = 40;
+            NUMROWS = 1;
+            TYPES = {
+                Exc = {
+                    INPUT_CHANNELS = {
+                        inh = gabaA;
+                        exc = ampa;
+                    };
+                    INTRINSIC_CHANNELS = {
+                        INaP = persistent_sodium;
+                        Ih = cation;
+                        IKNa = sodium_activated_potassium;
+                    };
+                    AFFERENT_CONNECTIONS = {};
+                    CELL_COMPARTMENTS = {
+                        relay = cortical_pyramidal;
+                    };
+                    CLASS_NAME = SIMType;
+                    EFFERENT_CONNECTIONS = {
+                        NearestNeighbor = {
+                            CONNECTIONS_MODEL = {
+                                CLASS_NAME = Gaussian;
+                                PARAMETERS = {
+                                    Constant = 0.0;
+                                    Height = 0.75;
+                                    Normalized = No;
+                                    Radius = 10;
+                                    Strength = 5.0;
+                                    Type = Random;
+                                    Width = 2.5;
+                                };
+                            };
+                            PROJECTION_INFO = {
+                                BOUNDARY_CONDITIONS = Extinctive;
+                                TYPES = (All.All);
+                                XOFFSET = 0;
+                                XSCALE = "100 %";
+                                YOFFSET = 0;
+                                YSCALE = "100 %";
+                            };
+                            CHANNEL_MODEL = ampa;
+                        };
+                    };
+                    PERCENTAGE = "100 %";
+                };
+            }; 
+            TYPE_DISTRIBUTION = Sobol; 
+        };
+    };
+    STIMULUS_GENERATOR_SEED = 2000; 
+    TIME_SCALE = 0.25;
+    INSPECTORS = {
+	"Cell 1" = {
+		INSPECTOR_CLASS = "SIMCellActivityInspector";
+            	FRAME = "512 546 350 200 0 0 1024 748 "; 
+		PARAMETERS = {};
+	};
+	"Cell 2" = {
+		INSPECTOR_CLASS = "SIMCellActivityInspector";
+            	FRAME = "512 646 350 200 0 0 1024 748 "; 
+		PARAMETERS = {};
+	};
+    };
+    AGENTS = {};
+}

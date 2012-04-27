@@ -1,0 +1,11 @@
+{
+	CLASS_NAME = SIMAgent;
+	INSPECTOR_CLASS = "";
+	INSPECTOR_FRAME = "";
+	PARAMETER_RANGES = {};
+	NOTIFICATION = "NetworkDidUpdate";
+	SELECTOR = "";
+	PARAMETERS = {
+		RootPath = "/";
+	};
+}

@@ -1,0 +1,16 @@
+{
+    CLASS_NAME = MovingPlaid;
+    PARAMETERS = {
+	XWavelength = 10.0;
+	YWavelength = 10.0;
+        XThickness = 2.0;
+        YThickness = 2.0;
+        XOffset = 0.0;
+        YOffset = 0.0;
+	XCyclesPerSecond = 10.0;
+	YCyclesPerSecond = 10.0;
+        PeakProbability = 0.5;
+    };
+    PARAMETER_RANGES = {
+    };
+}

@@ -1,0 +1,7 @@
+{
+    HELP = "";
+    CLASS_NAME = SIMObject;
+    INSPECTOR_CLASS = "";
+    PARAMETERS = {};
+    PARAMETER_RANGES = {};
+}

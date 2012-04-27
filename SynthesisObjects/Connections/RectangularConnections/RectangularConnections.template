@@ -1,0 +1,84 @@
+{
+	HELP = "Generates connections within a rectangular region.";
+	CLASS_NAME = RectangularConnections;
+	INSPECTOR_CLASS = SIMConnectionsInspector;
+	PARAMETERS = {
+	    Length = 10;
+	    Width = 2;
+	    Strength = 5;
+	    PeakProbability = 1.0;
+	    Type = Random;
+            Radius = 5;
+            MeanDelay = 0.0;
+            StdDelay = 0.0;
+	};
+	PARAMETER_RANGES = {
+	    Height = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = floatNumber;
+		    RANGE = (0.0,1.0);
+		    FORMAT = "%.2g";
+	    };
+	    Width = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = floatNumber;
+		    RANGE = (0.0,10.0);
+		    FORMAT = "%.2g";
+	    };
+	    Normalized = {
+		    INSPECTOR = SIMBoolInspector;
+		    SELECTOR = boolValue;
+		    RANGE = (No,Yes);
+		    FORMAT = "%@";
+	    };
+	    Offset = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = floatNumber;
+		    RANGE = (0.0,1.0);
+		    FORMAT = "%g";
+	    };
+	    XOffset = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = intNumber;
+		    RANGE = ("-30",30);
+		    FORMAT = "%g cells";
+	    };
+	    YOffset = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = intNumber;
+		    RANGE = ("-30",30);
+		    FORMAT = "%g cells";
+	    };
+	    Radius = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = intNumber;
+		    RANGE = (0,40);
+		    FORMAT = "%g cells";
+	    };
+	    Strength = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = floatNumber;
+		    RANGE = ("-10.0",10.0);
+		    FORMAT = "%.2g";
+	    };
+	    Type = {
+		    INSPECTOR = SIMArrayInspector;
+		    SELECTOR = stringValue;
+		    RANGE = (Random,Sobol,Smooth,RandomSmooth,GaussianStrength);
+		    FORMAT = "%@";
+	    };
+	    StdDelay = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = floatNumber;
+		    RANGE = (0.0,1.0);
+		    FORMAT = "%.2g";
+	    };
+	    MeanDelay = {
+		    INSPECTOR = SIMNumberInspector;
+		    SELECTOR = floatNumber;
+		    RANGE = (0.0,10.0);
+		    FORMAT = "%.2g";
+	    };
+
+    };
+}

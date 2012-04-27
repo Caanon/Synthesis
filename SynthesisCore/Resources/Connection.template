@@ -1,0 +1,35 @@
+{
+    HOMOGENEOUS = NO;
+    CHANNEL_MODEL = {};
+    CONNECTIONS_MODEL = {};
+    PROJECTION_INFO = {
+        TYPES = (All.All);
+        BOUNDARY_CONDITIONS = Periodic; 
+        XSCALE = "100 \%";
+        YSCALE = "100 \%";
+        XOFFSET = "0 cells";
+        YOFFSET = "0 cells";
+        ALLOW_SELF_CONNECTIONS = No;
+    };
+    PARAMETER_RANGES = {
+		BOUNDARY_CONDITIONS = {
+		    INSPECTOR = SIMArrayInspector;
+		    SELECTOR = stringValue;
+		    RANGE = (Periodic,NullFlux,Extinctive,Tiled);
+		    FORMAT = "%@";
+	    };
+        HOMOGENEOUS = {
+            INSPECTOR = SIMBoolInspector;
+            SELECTOR = boolValue;
+            RANGE = (No,Yes);
+        };
+        CHANNEL_MODEL = {
+            INSPECTOR = SIMModelInspector;
+            TYPE = "channel";
+        };
+        CONNECTIONS_MODEL = {
+            INSPECTOR = SIMModelInspector;
+            TYPE = "connections";
+        };
+    };
+}
